@@ -342,11 +342,11 @@ async def send_via_file_id(C, m, target_chat_id, final_text=None,
 @X.on_message(F.command('batch'))
 async def batch_cmd(C, m: M):
     U = m.from_user.id
-    if not await is_premium_user(U):
-        await m.reply_text(
-            'You need premium for this operation send /pay to proceed for payment'
-            )
-        return
+#    if not await is_premium_user(U):
+#        await m.reply_text(
+#            'You need premium for this operation send /pay to proceed for payment'
+#            )
+#        return
     if U in W:
         await m.reply_text(
             'You have an active download in progress. Please wait or use /stop.'
@@ -357,11 +357,11 @@ async def batch_cmd(C, m: M):
 @X.on_message(F.command('single'))
 async def single_cmd(C, m: M):
     U = m.from_user.id
-    if not await is_premium_user(U):
-        await m.reply_text(
-            'You need premium for this operation send /pay to proceed for payment'
-            )
-        return
+#    if not await is_premium_user(U):
+#        await m.reply_text(
+#            'You need premium for this operation send /pay to proceed for payment'
+#            )
+#        return
     if U in W:
         await m.reply_text(
             'You have an active download in progress. Please wait or use /stop.'
@@ -473,4 +473,5 @@ async def text_handler(C, m: M):
             await m.reply_text(f'Batch failed: {str(e)}')
         finally:
             W.pop(U, None)
+
             Z.pop(U, None)
